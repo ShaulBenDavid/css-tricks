@@ -1,0 +1,168 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.wrapper {
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  height: 100%;
+  z-index: -1;
+}
+
+.background,
+.foreground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.background {
+  transform: translateZ(-10px) scale(2.1);
+}
+
+.foreground {
+  transform: translateZ(-5px) scale(1.5);
+}
+
+.title {
+  font-size: clamp(4rem, 4vw, 10rem);
+  color: #fff;
+  text-shadow: 0 0 5px black;
+}
+
+.content {
+  background-color: #333;
+  padding: 2rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.content > p {
+  margin-inline: auto;
+  width: 76ch;
+  text-align: center;
+  /* text-wrap: balance; */
+}
+
+@media (orientation: portrait) {
+  .content > p {
+    width: 36ch;
+  }
+}
+#app {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-wrapper {
+  width: min(90vw, 600px);
+  margin-inline: auto;
+  margin-block: 100px;
+}
+
+.form {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* background-color: red; */
+}
+
+.input {
+  flex: 1 1 300px;
+  height: 40px;
+}
+
+.input:not(:first-child) {
+  flex: 1 1 200px;
+}
+
+/* Carousel */
+.container {
+  width: 320px;
+  height: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #333;
+  overflow: scroll;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.element {
+  min-width: 100%;
+  height: 300px;
+  scroll-margin: 10px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  color: white;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.element:nth-child(1) {
+  background: #1d1e21;
+}
+.element:nth-child(2) {
+  background: #ee6620;
+}
+.element:nth-child(3) {
+  background: #777ba0;
+}
+.element:nth-child(4) {
+  background: #da1e62;
+}
+
+.x-mandatory {
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: -20px;
+}
+
+.x-scroll .carousel {
+  display: flex;
+  width: 100%;
+}
+
+.x-scroll .element {
+  margin-right: 10px;
+}
