@@ -131,9 +131,16 @@ button {
   flex-direction: row;
 }
 
+.carousel {
+  container-type: inline-size;
+  container-name: cardCon;
+  container: cardCon / inline-size;
+}
+
 .element {
-  min-width: 33%;
-  aspect-ratio: 19 / 16;
+  min-width: 33.3%;
+  aspect-ratio: 16 / 9;
+
   scroll-margin: 10px;
   scroll-snap-align: start;
   scroll-snap-stop: always;
@@ -159,6 +166,12 @@ button {
     0% 20%
   ); */
 }
+@container cardCon (width < 900px) {
+  .element {
+    aspect-ratio: 1;
+  }
+}
+
 .element:nth-child(3) {
   background: #777ba0;
 }
@@ -179,6 +192,12 @@ button {
   width: 100%;
 }
 
-.x-scroll .element {
-  margin-right: 10px;
+.x-scroll {
+  & .element {
+    margin-right: 10px;
+  }
 }
+/* 
+.x-scroll .carousel:hover > :not(:hover) {
+  opacity: 0.2;
+} */
